@@ -5,6 +5,7 @@
 \*---------------------------------*/
 
 import autoprefixer from 'gulp-autoprefixer';
+import babel from 'gulp-babel';
 import browsersync from 'browser-sync';
 import cache from 'gulp-cache';
 import changed from 'gulp-changed';
@@ -72,7 +73,7 @@ gulp.task('sass', () => {
 // JSHint's Task
 gulp.task('jshint', () => {
   return gulp.src(`${paths.source.scripts}**/*.js`)
-    .pipe(jshint())
+    .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter(stylish));
 });
 
@@ -137,6 +138,7 @@ gulp.task('build:styles', () => {
 // Copy and minify Javascript's Task
 gulp.task('build:scripts', () => {
   return gulp.src(`${paths.source.scripts}**/*.js`)
+    .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest(paths.build.scripts));
 });
@@ -144,7 +146,17 @@ gulp.task('build:scripts', () => {
 // Copy and minify Images's Task
 gulp.task('build:images', () => {
   return gulp.src(`${paths.source.images}**/*.+(png|jpg|jpeg|gif|svg)`)
-    .pipe(cache(imagemin([], { interlaced: true })))
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ]))
     .pipe(gulp.dest(paths.build.images));
 });
 

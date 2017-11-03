@@ -19,4 +19,4 @@ onmessage = function(e) {
   }
 
   postMessage(imageData);
-}
+};

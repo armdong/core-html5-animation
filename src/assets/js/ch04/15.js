@@ -43,10 +43,10 @@
               data[i + 3] = data[i - 1];
               i += 4;
             } else { // not the last pixel in the row
-              data[i] = 255 / 2         // Average value
-                + 2 * data[i]           // current pixel
-                - data[i + 4]           // next pixel
-                - data[i + width * 4];  // pixel underneath
+              data[i] = 255 / 2 +       // Average value
+                2 * data[i] -           // current pixel
+                data[i + 4] -           // next pixel
+                data[i + width * 4];    // pixel underneath
             }
           }
         } else { // last row, no pixel underneath, so copy pixel above
