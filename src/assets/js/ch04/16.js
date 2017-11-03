@@ -13,7 +13,7 @@
       sunglassButton = document.querySelector('#sunglassButton'),
       image = new Image(),
       sunglassOn = false,
-      sunglassFilter = new Worker('../assets/js/ch04/16.sunglassFilter.js');
+      sunglassFilter = new Worker('../assets/js/ch04/sunglassFilter.js');
 
 
     /*--------------------------------*\
