@@ -1,7 +1,7 @@
 {
   "name": "core-html5-canvas",
   "version": "1.0.0",
-  "description": "SourceCode for the Core HTML5 Animation Book.",
+  "description": "SourceCode for the Core HTML5 Canvas Book.",
   "main": "index.js",
   "repository": "git@github.com:armdong/core-html5-canvas.git",
   "author": "armdong <armdong@163.com>",
