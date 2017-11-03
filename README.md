@@ -1,2 +1,2 @@
 # core-html5-animation
-SourceCode for the Core HTML5 Animation Book. 
+SourceCode for the Core HTML5 Canvas Book. 
