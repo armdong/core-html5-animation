@@ -1,0 +1,14 @@
+body {
+  background-color: #ddd; }
+
+#controls {
+  margin: 10px 0 0 15px; }
+
+#canvas {
+  margin: 10px 0 0 10px;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); }
+
+/*# sourceMappingURL=09.css.map */
