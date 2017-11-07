@@ -49,7 +49,8 @@
         strokeStyle: 'orange'
       }],
       numDiscs = discs.length,
-      animateButton = document.getElementById('animateButton');
+      animateButton = document.getElementById('animateButton'),
+      lastTime = 0;
 
 
     /*-----------------------------------*\
@@ -131,6 +132,14 @@
       }
     }
 
+    function calculateFps() {
+      var now = +new Date(),
+        fps = 1000 / (now - lastTime);
+
+      lastTime = now;
+      return fps;
+    }
+
 
     /*-----------------------------------*\
       Animation
@@ -142,6 +151,12 @@
         drawBackground();
         update();
         draw();
+
+        var fps = calculateFps().toFixed(0) + ' fps';
+
+        context.fillStyle = 'cornflowerblue';
+        context.fillText(fps, 20, 60);
+        // console.log(fps);
 
         window.requestNextAnimationFrame(animate);
       }
